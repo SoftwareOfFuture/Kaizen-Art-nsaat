@@ -45,6 +45,7 @@ app.get('/api/cron/schedules', async (req, res) => {
 });
 
 app.get('/health', (req, res) => res.json({ status: 'ok' }));
+app.get('/hello', (req, res) => res.json({ ok: true, message: 'API calisiyor' }));
 
 app.use((req, res) => res.status(404).json({ error: 'Bulunamadı' }));
 
