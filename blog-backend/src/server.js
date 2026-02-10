@@ -23,7 +23,10 @@ app.use(cookieParser());
 
 app.use('/api', apiLimiter);
 
+// /api prefix (standalone + Vercel full path)
 app.use('/api', routes);
+// Vercel catch-all bazen /api olmadan path gönderebilir
+app.use(routes);
 
 // Vercel Cron için - zamanlanmış görevleri tetikle
 app.get('/api/cron/schedules', async (req, res) => {

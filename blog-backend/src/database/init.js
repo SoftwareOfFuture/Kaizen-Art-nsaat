@@ -2,12 +2,15 @@
  * PostgreSQL tablolarını oluştur
  * Vercel Postgres bağlandıktan sonra çalıştırın
  */
+import dotenv from 'dotenv';
 import pg from 'pg';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+dotenv.config({ path: path.join(__dirname, '../../.env') });
+
 const schemaPath = path.join(__dirname, 'schema.pg.sql');
 
 if (!process.env.DATABASE_URL) {
